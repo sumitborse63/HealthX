@@ -1,0 +1,71 @@
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:weightSum="1">
+
+        <!-- Email input field -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp"/>
+
+        <!-- Password input field -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp"/>
+
+        <!-- ProgressBar (initially invisible) -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center"/>
+
+        <!-- Login button -->
+        <Button
+            android:id="@+id/btnEmailLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login with Email"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Google Sign-In button -->
+        <Button
+            android:id="@+id/btnGoogleSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign In with Google" />
+
+        <!-- Go to Signup text -->
+        <TextView
+            android:id="@+id/tvGoToSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Don't have an account? Sign Up"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"/>
+
+    </LinearLayout>
+</ScrollView>

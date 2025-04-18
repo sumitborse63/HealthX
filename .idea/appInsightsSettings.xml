@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.skhealth.healthx" />
+                  <option name="mobileSdkAppId" value="1:275726154468:android:c3b2ff6290cbfa9d994af1" />
+                  <option name="projectId" value="healthx-21bc5" />
+                  <option name="projectNumber" value="275726154468" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
