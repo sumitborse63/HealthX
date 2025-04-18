@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "275726154468",
+    "project_id": "healthx-21bc5",
+    "storage_bucket": "healthx-21bc5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275726154468:android:c3b2ff6290cbfa9d994af1",
+        "android_client_info": {
+          "package_name": "com.skhealth.healthx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "275726154468-6cosk3jtniisf4h3frmj81abbd65pg5d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.skhealth.healthx",
+            "certificate_hash": "8b2f6f4942663b4ec65160622c964cda2d9eaf19"
+          }
+        },
+        {
+          "client_id": "275726154468-6ka75ja69lb0ui9l9iag1rav0g0463ej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0qRr6PFEmI7gbd0LnD1us1uZ5gd7GE90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "275726154468-6ka75ja69lb0ui9l9iag1rav0g0463ej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
