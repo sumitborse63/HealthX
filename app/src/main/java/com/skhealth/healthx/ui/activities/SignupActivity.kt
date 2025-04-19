@@ -70,7 +70,7 @@ class SignupActivity : AppCompatActivity() {
         val emailEditText = findViewById<EditText>(R.id.etEmail)
         val passwordEditText = findViewById<EditText>(R.id.etPassword)
         val signUpButton = findViewById<Button>(R.id.btnSignUp)
-        val googleSignUpButton = findViewById<SignInButton>(R.id.btnGoogleSignUp)
+        val googleSignUpButton = findViewById<Button>(R.id.btnGoogleSignUp)
         val alreadyUserTextView = findViewById<TextView>(R.id.tvAlreadyUser)
 
         // Observe LiveData from ViewModel

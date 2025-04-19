@@ -1,71 +1,153 @@
-<ScrollView android:layout_width="match_parent"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:background="#000000">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Logo Image -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:contentDescription="App Logo"
+        android:src="@drawable/ic_logo" />
+
+    <!-- Welcome Text -->
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_vertical"
-        android:weightSum="1">
+        android:text="@string/welcome_back_user"
+        android:textColor="#DDDDDD"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="160dp" />
 
-        <!-- Email input field -->
-        <EditText
-            android:id="@+id/etEmail"
+    <!-- Card with Rounded Top Corners Only -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:shapeAppearanceOverlay="@style/TopOnlyRoundedCard">
+
+        <!-- Scrollable Content -->
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:layout_marginBottom="16dp"
-            android:padding="12dp"/>
+            android:layout_height="match_parent">
 
-        <!-- Password input field -->
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:layout_marginBottom="16dp"
-            android:padding="12dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
 
-        <!-- ProgressBar (initially invisible) -->
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_marginBottom="16dp"
-            android:layout_gravity="center"/>
+                <!-- Email -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:hint="Email"
+                    android:layout_marginBottom="16dp"
+                    app:boxStrokeColor="#666666">
 
-        <!-- Login button -->
-        <Button
-            android:id="@+id/btnEmailLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login with Email"
-            android:layout_marginBottom="16dp"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:textColor="#000000" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Google Sign-In button -->
-        <Button
-            android:id="@+id/btnGoogleSignIn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sign In with Google" />
+                <!-- Password -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:hint="Password"
+                    app:endIconMode="password_toggle"
+                    android:layout_marginBottom="24dp"
+                    app:boxStrokeColor="#666666">
 
-        <!-- Go to Signup text -->
-        <TextView
-            android:id="@+id/tvGoToSignup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Don't have an account? Sign Up"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="16sp"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textColor="#000000" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/tvForgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Forgot Password?"
+                    android:textColor="#0066CC"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center" />
 
-    </LinearLayout>
-</ScrollView>
+                <!-- Sign In Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSignin"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="@string/sign_in"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:backgroundTint="#000000"
+                    app:cornerRadius="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="24dp" />
+
+                <!-- Divider -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="or connect with"
+                    android:textAlignment="center"
+                    android:textColor="#888888"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Social Login -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btngoogleSignin"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="@string/sign_in_with_google"
+                    app:icon="@drawable/ic_google"
+                    app:iconTint="@null"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    app:strokeColor="#666666"
+                    android:textColor="#000000"
+                    app:cornerRadius="24dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Sign Up Redirect -->
+                <TextView
+                    android:id="@+id/tvGoToSignUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/don_t_have_an_account_sign_up"
+                    android:textColor="#666666"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp" />
+
+                <!-- ProgressBar -->
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:layout_marginTop="16dp"
+                    android:indeterminateTint="#000000" />
+            </LinearLayout>
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

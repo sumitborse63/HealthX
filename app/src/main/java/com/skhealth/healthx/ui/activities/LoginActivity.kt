@@ -75,12 +75,11 @@ class LoginActivity : AppCompatActivity() {
         // Views for Email login and Google sign-in
         val emailEditText = findViewById<EditText>(R.id.etEmail)
         val passwordEditText = findViewById<EditText>(R.id.etPassword)
-        val btnEmailLogin = findViewById<Button>(R.id.btnEmailLogin)
-        val btnGoogleSignIn = findViewById<Button>(R.id.btnGoogleSignIn)
+        val btnEmailLogin = findViewById<Button>(R.id.btnSignin)
+        val btnGoogleSignIn = findViewById<Button>(R.id.btngoogleSignin)
         progressBar = findViewById(R.id.progressBar) // Loading indicator
-
-        // Go to Signup TextView
-        val tvGoToSignup = findViewById<TextView>(R.id.tvGoToSignup)
+        val tvForgotPassword = findViewById<TextView>(R.id.tvForgotPassword)
+        val tvGoToSignup = findViewById<TextView>(R.id.tvGoToSignUp)
 
         // Set click listener for Go to Signup
         tvGoToSignup.setOnClickListener {
@@ -88,8 +87,19 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
         }
-
-        // Google Sign-In button
+        tvForgotPassword.setOnClickListener {
+            val email = emailEditText.text.toString().trim()
+            if (email.isNotEmpty()) {
+                resetPassword(email)
+            } else {
+                Toast.makeText(
+                    this,
+                    "Please enter your email to reset the password",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+            // Google Sign-In button
         btnGoogleSignIn.setOnClickListener {
             googleSignInResult.launch(googleSignInClient.signInIntent) // Launch Google Sign-In
         }
@@ -128,7 +138,18 @@ class LoginActivity : AppCompatActivity() {
                 }
         }
     }
-
+    private fun resetPassword(email: String) {
+        progressBar.visibility = ProgressBar.VISIBLE
+        firebaseAuth.sendPasswordResetEmail(email)
+            .addOnCompleteListener { task ->
+                progressBar.visibility = ProgressBar.INVISIBLE
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Password reset email sent!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Failed to send reset email. Please check the email address.", Toast.LENGTH_LONG).show()
+                }
+            }
+    }
     private fun observeViewModel() {
         viewModel.authResult.observe(this) { resource ->
             when (resource) {
